@@ -4,7 +4,6 @@ using UnityEditor;
 
 public class ControladorScript : MonoBehaviour {
     public GameObject plato;
-    public GameObject pos1;
     Vector3 posicion;
     int contador = 0;
     
@@ -22,8 +21,8 @@ public class ControladorScript : MonoBehaviour {
         //if
         //float timeRandom = Random.Range(1, 3);
         contador++;
-        int nroRandomico = Random.Range(300, 900);
-        if (nroRandomico == contador)
+        int nroRandomico = Random.Range(100, 200);
+        if (nroRandomico < contador)
         {
         //if (contador == 100)
         //{
@@ -34,4 +33,5 @@ public class ControladorScript : MonoBehaviour {
             
         }
 	}
+    
 }

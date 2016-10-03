@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C6379AA6-9040-B34F-F63E-05926F48D77D}</ProjectGuid>
+    <ProjectGuid>{B2D0E20B-6321-0B34-4161-6D3C901BB1E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\ControladorScript.cs" />
      <Compile Include="Assets\FallingObjectMovement.cs" />
+     <Compile Include="Assets\FloorActions.cs" />
      <Compile Include="Assets\PlayerMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
