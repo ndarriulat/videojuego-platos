@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
-
+using UnityEditor; 
+//pruebis
 public class ControladorScript : MonoBehaviour {
     public GameObject plato;
     Vector3 posicion;
