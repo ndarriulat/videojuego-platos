@@ -29,6 +29,7 @@ public class FloorActions : MonoBehaviour {
         {
             g.SetActive(true);
         }
+        ControladorScript.stopGame();
     }
     void HideGameOver()
     {

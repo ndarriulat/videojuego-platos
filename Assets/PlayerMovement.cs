@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 15f;
 
-    string direccionActual = "left";
-
-	// Use this for initialization
-	void Start () {
-	    
+    public Text scoreText;
+    private int score;
+    // Use this for initialization
+    void Start () {
+        score = 0;
+        UpdateScore();
 	}
 	
 	// Update is called once per frame
@@ -50,6 +52,19 @@ public class PlayerMovement : MonoBehaviour {
         Debug.Log("OnTriggerEnter");
         //collider.gameObject.SetActive(false);
         Destroy(collider.gameObject);
+        AddScore(10);
+    }
+
+
+    void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
+        Debug.Log(scoreText.text);
+        Debug.Log(score);
     }
 	
+    public void AddScore(int newScoreValue){
+        score += newScoreValue;
+        UpdateScore();
+    }
 }

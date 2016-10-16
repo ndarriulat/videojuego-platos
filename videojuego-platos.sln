@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{75377C67-9EB3-0C11-EFCE-3FB19F70DD4B}") = "videojuego-platos", "Assembly-CSharp.csproj", "{D2365178-8675-29DC-1811-5B0FEC04CEDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2365178-8675-29DC-1811-5B0FEC04CEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2365178-8675-29DC-1811-5B0FEC04CEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2365178-8675-29DC-1811-5B0FEC04CEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2365178-8675-29DC-1811-5B0FEC04CEDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
