@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor; 
-//pruebis
+
 public class ControladorScript : MonoBehaviour {
     public GameObject plato;
+	public GameObject vino;
+	public GameObject cafe;
     Vector3 posicion;
     int contador = 0;
     public static bool playing;
@@ -28,10 +30,19 @@ public class ControladorScript : MonoBehaviour {
             int nroRandomico = Random.Range(100, 200);
             if (nroRandomico < contador)
             {
-                Debug.Log(contador);
+                //Debug.Log(contador);
                 contador = 0;
                 posicion.x = Random.Range(-9, 9);
-                GameObject objeto = (GameObject)Instantiate(plato, posicion, Quaternion.identity);
+				GameObject objeto;
+				if (nroRandomico % 2 == 0) {
+					objeto = (GameObject)Instantiate (plato, posicion, Quaternion.identity);
+				} 
+				if(nroRandomico%3==0) {
+					objeto = (GameObject)Instantiate (vino, posicion, Quaternion.identity);
+				}
+				if (nroRandomico%7==0) {
+					objeto = (GameObject)Instantiate (cafe, posicion, Quaternion.identity);
+				}
             }
         }
     }

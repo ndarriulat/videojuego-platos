@@ -16,7 +16,7 @@ public class FloorActions : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("GAME OVER");
+        //Debug.Log("GAME OVER");
         ShowGameOver();
         Destroy(collider.gameObject);
     }
