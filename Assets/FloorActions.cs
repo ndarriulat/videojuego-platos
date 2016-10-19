@@ -16,8 +16,12 @@ public class FloorActions : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
+		Debug.Log("FloorAction choco con " + collider.name);
         //Debug.Log("GAME OVER");
-        ShowGameOver();
+		string nombreObjeto=collider.gameObject.tag;
+		if (nombreObjeto!=("Vino")&&nombreObjeto!=("Cafe")) {
+			ShowGameOver();			
+		}
         Destroy(collider.gameObject);
     }
 

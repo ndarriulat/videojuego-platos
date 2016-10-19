@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
 	string nombreVino = "Vino(Clone)";
 	string nombreCafe = "Cafe(Clone)";
 
+	private Rigidbody rigid;
+
     // Use this for initialization
     void Start () {
         score = 0;
@@ -32,28 +34,34 @@ public class PlayerMovement : MonoBehaviour {
 		speedVariations.Add (nombrePlato, 0);
 		speedVariations.Add (nombreVino, variacionVelocidadVino);
 		speedVariations.Add (nombreCafe, variacionVelocidadCafe);
+
+		rigid = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         float move = Input.GetAxis("Horizontal");
-        if (move>0)
-        {
-            //CambiarDireccion("right");
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
-        else if (move<0)
-        {
-           // CambiarDireccion("left");
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
+		if (move > 0) {
+			//CambiarDireccion("right");
+			transform.Translate(Vector3.right * speed * Time.deltaTime);
+			//rigid.AddForce (Vector3.right * speed * Time.deltaTime);
+		} else if (move < 0) {
+			// CambiarDireccion("left");
+			transform.Translate(Vector3.left * speed * Time.deltaTime);
+			//rigid.AddForce (Vector3.left * speed * Time.deltaTime);
+		} 
+//		else {
+//			rigid.velocity = Vector3.zero;
+//		}
 	}
 
     void OnTriggerEnter(Collider collider)
     {
-		string colliderObject = collider.gameObject.name;
-        Destroy(collider.gameObject);
-		UpdatePlayerAttributes (colliderObject);
+		string colliderObjectName = collider.gameObject.name;
+		if (!colliderObjectName.Contains("Pared")) {
+			Destroy(collider.gameObject);
+			UpdatePlayerAttributes (colliderObjectName);			
+		}
     }
 
 	void UpdatePlayerAttributes(string fallingObjectName)
@@ -68,14 +76,13 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			speed += speedVariation;
 		}
-		Debug.Log ("Speed: " + speed);
+//		Debug.Log ("Speed: " + speed);
 	}
 
     void UpdateScore()
     {
         scoreText.text = "Score: " + score;
-//        Debug.Log(scoreText.text);
-//        Debug.Log(score);
+
     }
 	
     public void AddScore(int newScoreValue){
