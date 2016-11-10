@@ -66,10 +66,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ControladorScript.cs" />
-    <Compile Include="Assets\FallingObjectMovement.cs" />
-    <Compile Include="Assets\FloorActions.cs" />
-    <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\ControladorScript.cs" />
+    <Compile Include="Assets\Scripts\FallingObjectMovement.cs" />
+    <Compile Include="Assets\Scripts\FloorActions.cs" />
+    <Compile Include="Assets\Scripts\MenuScript.cs" />
+    <Compile Include="Assets\Scripts\PlatoScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\VinoScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
