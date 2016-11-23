@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -16,26 +17,28 @@ public class PlayerMovement : MonoBehaviour {
     public float tiempoAcumulado = 0;
 
     public Text scoreText;
-	private int score;
+	public int score;
 	public Dictionary<string,int> scoreVariations=new Dictionary<string,int>();
 	public Dictionary<string,int> speedVariations=new Dictionary<string,int>();
 	string nombrePlato = "Plato(Clone)";
 	string nombreVino = "Vino(Clone)";
 	string nombreCafe = "Cafe(Clone)";
 
-	private Rigidbody rigid;
+    GameObject[] finishObjects;
+
+    private Rigidbody rigid;
 
     // Use this for initialization
     void Start () {
         score = 0;
 		UpdateScore();
-		scoreVariations.Add (nombrePlato, 10);
-		scoreVariations.Add (nombreVino, 0);
-		scoreVariations.Add (nombreCafe, 0);
+		scoreVariations.Add(nombrePlato, 10);
+		scoreVariations.Add(nombreVino, 0);
+		scoreVariations.Add(nombreCafe, 0);
 
-		speedVariations.Add (nombrePlato, 0);
-		speedVariations.Add (nombreVino, variacionVelocidadVino);
-		speedVariations.Add (nombreCafe, variacionVelocidadCafe);
+		speedVariations.Add(nombrePlato, 0);
+		speedVariations.Add(nombreVino, variacionVelocidadVino);
+		speedVariations.Add(nombreCafe, variacionVelocidadCafe);
 
 		rigid = GetComponent<Rigidbody> ();
 	}
@@ -65,13 +68,22 @@ public class PlayerMovement : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
 		string colliderObjectName = collider.gameObject.name;
-		if (!colliderObjectName.Contains("Pared")) {
-			Destroy(collider.gameObject);
-			UpdatePlayerAttributes (colliderObjectName);			
-		}
+        if (colliderObjectName.Contains("Cucaracha"))
+        {
+            ScoreControl.control.guardarPuntajeActual(score);
+            SceneManager.LoadScene(1);
+        }
+        else {
+            if (!colliderObjectName.Contains("Pared")) {
+			    Destroy(collider.gameObject);
+			    UpdatePlayerAttributes (colliderObjectName);			
+		    }
+        }
     }
+    
 
-	void UpdatePlayerAttributes(string fallingObjectName)
+
+    void UpdatePlayerAttributes(string fallingObjectName)
 	{
 		AddScore(scoreVariations[fallingObjectName]);
 		ChangePlayerSpeed (speedVariations [fallingObjectName]);
@@ -83,7 +95,6 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			speed += speedVariation;
 		}
-//		Debug.Log ("Speed: " + speed);
 	}
 
     void UpdateScore()

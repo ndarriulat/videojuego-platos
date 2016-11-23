@@ -16,12 +16,5 @@ public class FallingObjectMovement : MonoBehaviour {
 	void Start () {
 	
 	}
-
-    //void OnTriggerEnter(Collider collider)
-    //{
-    //    Debug.Log("OnTriggerEnter");
-    //    gameObject.SetActive(false);
-    //    this.enabled = false;
-    //}
 	
 }

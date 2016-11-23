@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FloorActions : MonoBehaviour {
 
     GameObject[] finishObjects;
+    public PlayerMovement player;
     // Use this for initialization
     void Start () {
-        HideGameOver();
     }
 	
 	// Update is called once per frame
@@ -16,9 +17,8 @@ public class FloorActions : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        //Debug.Log("GAME OVER");
 		string nombreObjeto=collider.gameObject.tag;
-		if (nombreObjeto!=("Vino")&&nombreObjeto!=("Cafe")) {
+		if (nombreObjeto == ("Plato")) {
 			ShowGameOver();			
 		}
         Destroy(collider.gameObject);
@@ -26,21 +26,8 @@ public class FloorActions : MonoBehaviour {
 
     void ShowGameOver()
     {
+        ScoreControl.control.guardarPuntajeActual(player.score);
+        SceneManager.LoadScene(1);
+    }
 
-        //se agregó un tag showOnGameOver al texto gameover
-        foreach (GameObject g in finishObjects)
-        {
-            g.SetActive(true);
-        }
-        ControladorScript.stopGame();
-    }
-    void HideGameOver()
-    {
-        //se agregó un tag showOnGameOver al texto gameover
-        finishObjects = GameObject.FindGameObjectsWithTag("showOnGameOver");
-        foreach (GameObject g in finishObjects)
-        {
-            g.SetActive(false);
-        }
-    }
 }
