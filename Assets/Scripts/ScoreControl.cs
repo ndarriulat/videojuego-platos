@@ -36,32 +36,31 @@ public class ScoreControl : MonoBehaviour {
         listaHighScores = new List<HighScore>();
         /////////////////////////////////////////////////////////// DESCOMENTAR:
         string nombreKey = "h";
-        for (int i = 0; i < 5; i++)
-        {
-            string highScore = PlayerPrefs.GetString(nombreKey + (i + 1));
+		for (int i = 0; i < 5; i++)
+		{
+			int indiceKey=i+1;
+			nombreKey = nombreKey + indiceKey;
+            string highScore = PlayerPrefs.GetString(nombreKey);
             string[] partes = highScore.Split(',');
             listaHighScores.Add(new HighScore(partes[0], partes[1]));
+			Debug.Log ("Key:"+nombreKey+" Puntaje:"+ listaHighScores [i]);
         }
         
 	}
 	
     void OnApplicationQuit()
     {
-        // antes de guardar agrego el score a la lista y re ordeno por puntaje. me quedo con los 5 primeros
-        listaHighScores.Sort((h1,h2) => h1.Puntaje.CompareTo(h2.Puntaje));
+		listaHighScores.Sort((h1,h2) =>-1* h1.Puntaje.CompareTo(h2.Puntaje));
         string nombreKey = "h";
-        for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 5 && i<listaHighScores.Count; i++)
         {
-            string highScore = PlayerPrefs.GetString(nombreKey + (i + 1));
-            string[] partes = highScore.Split(',');
-            listaHighScores.Add(new HighScore(partes[0], partes[1]));
-            PlayerPrefs.SetString(nombreKey + (i + 1), highScore[i].ToString());
+			string highScore = listaHighScores[i].ToString();
+            //string[] partes = highScore.Split(',');
+			int indiceKey=i+1;
+			nombreKey = nombreKey + indiceKey;
+			PlayerPrefs.SetString(nombreKey, highScore);
+			Debug.Log(PlayerPrefs.GetString(nombreKey));
         }
-        
-        
-        // PRUEBA:
-        //PlayerPrefs.SetString("h1", new HighScore("Juan",20).ToString());
-        //PlayerPrefs.SetString("h2", new HighScore("Juan", 30).ToString());
 	}
 }
 

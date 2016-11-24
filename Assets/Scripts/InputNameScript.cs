@@ -14,8 +14,8 @@ public class InputNameScript : MonoBehaviour {
 	void Update () {
 	
 	}
-
-    void OnEditEnd()
+    
+    public void OnEditEnd()
     {
         ScoreControl.control.nombreActual= inputName.text;
     }
