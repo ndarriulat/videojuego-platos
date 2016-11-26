@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
+	public bool esFinDeJuego = true;
+
+	// Update is called once per frame
+	void Update()
+	{
+
+		if (Input.GetKey(KeyCode.Escape))
+		{
+			SceneManager.LoadScene(1);
+		}
+
+	}
+
     public void PressGoToGameMenu()
     {
         SceneManager.LoadScene(1);

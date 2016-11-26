@@ -12,9 +12,5 @@ public class FallingObjectMovement : MonoBehaviour {
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
     }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 }

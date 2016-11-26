@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/tablaHighScores.unity
+- path: Assets/inicio.unity
   isLoaded: 1
   isActive: 1

@@ -27,7 +27,8 @@ public class FloorActions : MonoBehaviour {
     void ShowGameOver()
     {
         ScoreControl.control.guardarPuntajeActual(player.score);
-        SceneManager.LoadScene(1);
+		MenuScript.menu.esFinDeJuego = true;
+		SceneManager.LoadScene(1);
     }
 
 }
