@@ -15,10 +15,6 @@ public class ControladorScript : MonoBehaviour {
 	void Start () {
         posicion = new Vector3(0, 5);
         playing = true;
-        ////GameObject objeto =(GameObject) PrefabUtility.CreateEmptyPrefab("Assets/FallingObject.prefab");
-        //GameObject objeto = (GameObject)Instantiate(plato, pos1.transform.position, Quaternion.identity);
-        //objeto.transform.position = new Vector2(100, 300);
-        //objeto.SetActive(true);
     }
 	
 	// Update is called once per frame

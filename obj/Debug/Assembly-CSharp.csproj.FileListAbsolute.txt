@@ -21,8 +21,6 @@ C:\Users\Nicolas\Dropbox\Google Drive\Desarrollo de videojuegos 1\Juego2D\Temp\b
 C:\Users\Nicolas\Dropbox\Google Drive\Desarrollo de videojuegos 1\Juego2D\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Nicolas\Dropbox\Google Drive\Desarrollo de videojuegos 1\Juego2D\obj\Debug\Assembly-CSharp.dll
 C:\Users\Nicolas\Dropbox\Google Drive\Desarrollo de videojuegos 1\Juego2D\obj\Debug\Assembly-CSharp.pdb
-C:\Users\Nicolas\Documents\videojuego-platos\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
-C:\Users\Nicolas\Documents\videojuego-platos\obj\Debug\Assembly-CSharp.dll
 C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\Assembly-CSharp.dll
 C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\UnityEditor.dll
@@ -43,4 +41,6 @@ C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\UnityEngine.UI.xml
 C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\Nicolas\Documents\videojuego-platos\Temp\bin\Debug\UnityEngine.Analytics.xml
+C:\Users\Nicolas\Documents\videojuego-platos\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas\Documents\videojuego-platos\obj\Debug\Assembly-CSharp.dll
 C:\Users\Nicolas\Documents\videojuego-platos\obj\Debug\Assembly-CSharp.pdb

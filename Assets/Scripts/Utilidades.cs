@@ -1,12 +1,18 @@
 ﻿using System;
+using UnityEngine.SceneManagement;
 
 namespace AssemblyCSharp
 {
-	public class Utilidades_
+	public static class Utilidades
 	{
-		public Utilidades_ ()
+		public static void EndGame(int puntaje)
 		{
+			ScoreControl.control.guardarPuntajeActual(puntaje);
+			GameEndHandler.gameEndHandler.isGameOver=true;
+			SceneManager.LoadScene(1);
 		}
+
+
 	}
 }
 

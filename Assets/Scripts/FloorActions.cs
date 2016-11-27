@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class FloorActions : MonoBehaviour {
 
@@ -26,9 +27,7 @@ public class FloorActions : MonoBehaviour {
 
     void ShowGameOver()
     {
-        ScoreControl.control.guardarPuntajeActual(player.score);
-		MenuScript.menu.esFinDeJuego = true;
-		SceneManager.LoadScene(1);
+		Utilidades.EndGame(player.score);
     }
 
 }

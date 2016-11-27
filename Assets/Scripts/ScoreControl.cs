@@ -16,6 +16,11 @@ public class ScoreControl : MonoBehaviour {
         listaHighScores.Add(new HighScore(nombreActual,puntajeActual));
     }
 
+	public int ObtenerPuntajeActual()
+	{
+		return puntajeActual;
+	}
+
     void Awake()
     {
         if (control == null)
@@ -41,9 +46,10 @@ public class ScoreControl : MonoBehaviour {
 			int indiceKey=i+1;
 			nombreKey = nombreKey + indiceKey;
             string highScore = PlayerPrefs.GetString(nombreKey);
-            string[] partes = highScore.Split(',');
-            listaHighScores.Add(new HighScore(partes[0], partes[1]));
-			Debug.Log ("Key:"+nombreKey+" Puntaje:"+ listaHighScores [i]);
+			if (highScore!="") {
+				string[] partes = highScore.Split(',');
+				listaHighScores.Add(new HighScore(partes[0], partes[1]));
+			}
         }
         
 	}
@@ -59,7 +65,6 @@ public class ScoreControl : MonoBehaviour {
 			int indiceKey=i+1;
 			nombreKey = nombreKey + indiceKey;
 			PlayerPrefs.SetString(nombreKey, highScore);
-			Debug.Log(PlayerPrefs.GetString(nombreKey));
         }
 	}
 }

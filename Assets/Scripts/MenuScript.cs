@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
-	public bool esFinDeJuego = true;
 
 	// Update is called once per frame
 	void Update()
@@ -13,13 +12,20 @@ public class MenuScript : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.Escape))
 		{
+			GameEndHandler.gameEndHandler.isGameOver = false;
+			SceneManager.LoadScene(1);
+		}
+		if (Input.GetKey(KeyCode.KeypadEnter))
+		{
+			GameEndHandler.gameEndHandler.isGameOver = false;
 			SceneManager.LoadScene(1);
 		}
 
 	}
 
     public void PressGoToGameMenu()
-    {
+	{
+//		GameEndHandler.gameEndHandler.isGameOver = false;
         SceneManager.LoadScene(1);
     }
 
@@ -49,7 +55,8 @@ public class MenuScript : MonoBehaviour {
     }
 
     public void PressBack()
-    {
+	{
+		GameEndHandler.gameEndHandler.isGameOver = false;
         SceneManager.LoadScene(1);
     }
 }

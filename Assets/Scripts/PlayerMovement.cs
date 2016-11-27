@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -13,10 +14,11 @@ public class PlayerMovement : MonoBehaviour {
 	// Velocidades Maxima y Minima
 	public float minimumSpeed = normalSpeed + variacionVelocidadVino;
 	public float maximumSpeed = normalSpeed + variacionVelocidadCafe;
-    public float tiempoPowerUp = 3;
+    public float tiempoPowerUp = 10;
     public float tiempoAcumulado = 0;
 
     public Text scoreText;
+	public Text nameText;
 	public int score;
 	public Dictionary<string,int> scoreVariations=new Dictionary<string,int>();
 	public Dictionary<string,int> speedVariations=new Dictionary<string,int>();
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         score = 0;
+		nameText.text = ScoreControl.control.nombreActual;
 		UpdateScore();
 		scoreVariations.Add(nombrePlato, 10);
 		scoreVariations.Add(nombreVino, 0);
@@ -59,6 +62,7 @@ public class PlayerMovement : MonoBehaviour {
             tiempoAcumulado += Time.deltaTime;
             if (tiempoAcumulado>=tiempoPowerUp)
             {
+				Debug.Log (tiempoAcumulado);
                 speed = normalSpeed;
                 tiempoAcumulado = 0;
             }
@@ -70,8 +74,7 @@ public class PlayerMovement : MonoBehaviour {
 		string colliderObjectName = collider.gameObject.name;
         if (colliderObjectName.Contains("Cucaracha"))
         {
-            ScoreControl.control.guardarPuntajeActual(score);
-            SceneManager.LoadScene(1);
+			Utilidades.EndGame (score);
         }
         else {
             if (!colliderObjectName.Contains("Pared")) {
