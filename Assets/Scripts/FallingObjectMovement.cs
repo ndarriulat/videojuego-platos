@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FallingObjectMovement : MonoBehaviour {
 
-    public float fallSpeed = 8.0f;
+    public float fallSpeed = 140.0f;
 	public int variacionVelocidad=0;
 	public int puntos=0;
 

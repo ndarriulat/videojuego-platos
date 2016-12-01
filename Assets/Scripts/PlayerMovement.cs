@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Velocidades Maxima y Minima
 	public float minimumSpeed = normalSpeed + variacionVelocidadVino;
 	public float maximumSpeed = normalSpeed + variacionVelocidadCafe;
-    public float tiempoPowerUp = 10;
+    public float tiempoPowerUp;
     public float tiempoAcumulado = 0;
 
     public Text scoreText;
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         score = 0;
+		tiempoPowerUp = 8;
 		nameText.text = ScoreControl.control.nombreActual;
 		UpdateScore();
 		scoreVariations.Add(nombrePlato, 10);
@@ -57,12 +58,14 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
+
+        //Debug.Log(tiempoAcumulado);
         if (speed!=normalSpeed)
         {
             tiempoAcumulado += Time.deltaTime;
             if (tiempoAcumulado>=tiempoPowerUp)
             {
-				Debug.Log (tiempoAcumulado);
+				Debug.Log ("Tiempo: " +tiempoAcumulado+" Velocidad: "+speed+" Tiempo acumulado:" + tiempoPowerUp);
                 speed = normalSpeed;
                 tiempoAcumulado = 0;
             }
@@ -102,8 +105,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
-
+		scoreText.text = "Score: " + score;
+		speed = speed + (float) 0.01;
     }
 	
     public void AddScore(int newScoreValue){

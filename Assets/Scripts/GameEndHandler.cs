@@ -18,9 +18,12 @@ public class GameEndHandler : MonoBehaviour {
 
 
 	void Update(){
+
 		if (gameOverText!=null&&finalScoreText!=null) {
+
+			finalScoreText.text=ScoreControl.control.ObtenerPuntajeActual()+" puntos.";
 			if (isGameOver) {
-				gameOverText.text = "Fin del juego";
+				//gameOverText.text = "Fin del juego";
 				finalScoreText.text=ScoreControl.control.ObtenerPuntajeActual()+" puntos.";
 			} else {
 				gameOverText.text = "";
@@ -36,7 +39,7 @@ public class GameEndHandler : MonoBehaviour {
 			DontDestroyOnLoad(this.gameObject);
 			gameEndHandler = this;
 		}
-		else
+        else if (gameEndHandler!=this)
 		{
 			Destroy(this.gameObject);
 		}

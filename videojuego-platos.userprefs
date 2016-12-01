@@ -1,15 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MenuScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameEndHandler.cs" Line="32" Column="14" />
-      <File FileName="Assets\Scripts\MenuScript.cs" Line="59" Column="52" />
-      <File FileName="Assets\Scripts\Utilidades.cs" Line="11" Column="50" />
+      <File FileName="Assets\Scripts\GameEndHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MenuScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utilidades.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HighScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ControladorScript.cs" Line="39" Column="14" />
+      <File FileName="Assets\Scripts\FallingObjectMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="106" Column="23" />
+      <File FileName="Assets\Scripts\InputNameScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Nicolas\Documents\videojuego-platos\Assets\FloorActions.cs" line="22" column="1" />
+      <Breakpoint file="C:\Users\Nicolas\Documents\videojuego-platos\Assets\Scripts\HighScoreManager.cs" line="22" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

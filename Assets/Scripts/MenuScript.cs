@@ -15,9 +15,11 @@ public class MenuScript : MonoBehaviour {
 			GameEndHandler.gameEndHandler.isGameOver = false;
 			SceneManager.LoadScene(1);
 		}
-		if (Input.GetKey(KeyCode.KeypadEnter))
+		if (Input.GetKey(KeyCode.Return)||Input.GetKey(KeyCode.KeypadEnter))
 		{
-			GameEndHandler.gameEndHandler.isGameOver = false;
+			if (GameEndHandler.gameEndHandler!=null) {
+				GameEndHandler.gameEndHandler.isGameOver = false;
+			}
 			SceneManager.LoadScene(1);
 		}
 
