@@ -18,8 +18,12 @@ public class FloorActions : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-		string nombreObjeto=collider.gameObject.tag;
-		if (nombreObjeto == ("Plato")) {
+        string nombreObjeto=collider.gameObject.tag;
+        if (nombreObjeto != ("Cucaracha"))
+        {
+            gameObject.GetComponent<AudioSource>().Play();
+        }
+        if (nombreObjeto == ("Plato")) {
 			ShowGameOver();			
 		}
         Destroy(collider.gameObject);

@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         score = 0;
 		tiempoPowerUp = 8;
-		nameText.text = ScoreControl.control.nombreActual;
+		//nameText.text = ScoreControl.control.nombreActual;
 		UpdateScore();
 		scoreVariations.Add(nombrePlato, 10);
 		scoreVariations.Add(nombreVino, 0);
@@ -74,16 +74,21 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-		string colliderObjectName = collider.gameObject.name;
+        string colliderObjectName = collider.gameObject.name;
+        if (colliderObjectName.Contains("Plato"))
+        {
+            gameObject.GetComponent<AudioSource>().Play();
+        }
         if (colliderObjectName.Contains("Cucaracha"))
         {
 			Utilidades.EndGame (score);
-        }
+        }        
         else {
             if (!colliderObjectName.Contains("Pared")) {
-			    Destroy(collider.gameObject);
-			    UpdatePlayerAttributes (colliderObjectName);			
-		    }
+                Destroy(collider.gameObject);
+			    UpdatePlayerAttributes (colliderObjectName);
+                
+            }
         }
     }
     

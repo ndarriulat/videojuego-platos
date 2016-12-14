@@ -13,6 +13,7 @@ public class ControladorScript : MonoBehaviour {
 	void Start () {
         posicion = new Vector3(0, 5);
         playing = true;
+        posicion.y = 10;
     }
 	
 	// Update is called once per frame
