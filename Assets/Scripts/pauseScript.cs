@@ -4,32 +4,28 @@ using AssemblyCSharp;
 
 public class pauseScript : MonoBehaviour {
 
-    public bool paused;
-
-    public bool isPaused() {
-        return paused;
-    }
-
+    public bool pausedGame;
+    
 	// Use this for initialization
 	void Start () {
-        paused = false;
+        pausedGame = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            paused = !paused;
+            pausedGame = !pausedGame;
         }
-        if (paused)
+        if (pausedGame)
         {
             Time.timeScale = 0;
         }
-        else if (!paused)
+        else if (!pausedGame)
         {
             Time.timeScale = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) /*&& paused*/)
+        if (Input.GetKeyDown(KeyCode.Escape) && pausedGame)
         {
             Utilidades.EndGame(0);
         }

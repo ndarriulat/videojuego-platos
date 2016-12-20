@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ControladorScript : MonoBehaviour {
     public GameObject plato;
@@ -8,18 +9,27 @@ public class ControladorScript : MonoBehaviour {
     Vector3 posicion;
     int contador = 0;
     public static bool playing;
-    
-	// Use this for initialization
-	void Start () {
+
+    public Text myText;
+
+    // Use this for initialization
+    void Start () {
         posicion = new Vector3(0, 5);
         playing = true;
         posicion.y = 10;
+        myText = GameObject.Find("PausedText").GetComponent<Text>();
+        myText.color = Color.clear;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (playing && Time.timeScale!=0)
+        myText = GameObject.Find("PausedText").GetComponent<Text>();
+        if (Time.timeScale == 0)
         {
+            myText.color = Color.red;
+        } else if (playing)
+        {
+            myText.color = Color.clear;
             contador++;
             int nroRandomico = Random.Range(100, 200);
             if (nroRandomico < contador)
