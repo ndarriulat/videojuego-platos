@@ -18,8 +18,7 @@ public class ControladorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-        if (playing)
+        if (playing && Time.timeScale!=0)
         {
             contador++;
             int nroRandomico = Random.Range(100, 200);

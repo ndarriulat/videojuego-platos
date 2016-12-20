@@ -11,8 +11,6 @@ namespace AssemblyCSharp
 			GameEndHandler.gameEndHandler.isGameOver=true;
 			SceneManager.LoadScene(1);
 		}
-
-
 	}
 }
 

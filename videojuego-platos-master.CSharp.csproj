@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\ScoreControl.cs" />
     <Compile Include="Assets\Scripts\Utilidades.cs" />
     <Compile Include="Assets\Scripts\VinoScript.cs" />
+    <Compile Include="Assets\Scripts\pauseScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
