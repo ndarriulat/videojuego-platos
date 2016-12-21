@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour {
 	string nombrePlato = "Plato(Clone)";
 	string nombreVino = "Vino(Clone)";
 	string nombreCafe = "Cafe(Clone)";
-	public GameObject destello_plato;
 
     GameObject[] finishObjects;
 
@@ -50,23 +49,27 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         if (Input.GetKey("left"))
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            //para evitar el efecto de rebote que hacia.
+            if (transform.position.x > -8)
+            {
+                transform.Translate(Vector3.left * speed * Time.deltaTime);
+            }
         }
         if (Input.GetKey("right"))
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            //para que el mozo no se salga de la pantalla, y evitar el efecto de rebote que hacia.
+            if (transform.position.x < 7) {
+                transform.Translate(Vector3.right * speed * Time.deltaTime);
+            }
         }
 
-        //Debug.Log(tiempoAcumulado);
         if (speed!=normalSpeed)
         {
             tiempoAcumulado += Time.deltaTime;
             if (tiempoAcumulado>=tiempoPowerUp)
             {
-				Debug.Log ("Tiempo: " +tiempoAcumulado+" Velocidad: "+speed+" Tiempo acumulado:" + tiempoPowerUp);
                 speed = normalSpeed;
                 tiempoAcumulado = 0;
             }
@@ -78,7 +81,6 @@ public class PlayerMovement : MonoBehaviour {
         string colliderObjectName = collider.gameObject.name;
         if (colliderObjectName.Contains("Plato"))
         {
-			Instantiate (destello_plato, this.gameObject.transform.position,Quaternion.identity);
             gameObject.GetComponent<AudioSource>().Play();
         }
         if (colliderObjectName.Contains("Cucaracha"))
@@ -112,8 +114,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void UpdateScore()
     {
-		scoreText.text = "Score: " + score;
-		speed = speed + (float) 0.01;
+        scoreText.text = "Score: " + score;
     }
 	
     public void AddScore(int newScoreValue){

@@ -39,7 +39,6 @@ public class ScoreControl : MonoBehaviour {
 	void Start () {
         // Leo de la BD los puntajes y los agrego en la lista.
         listaHighScores = new List<HighScore>();
-        /////////////////////////////////////////////////////////// DESCOMENTAR:
         string nombreKey = "h";
 		for (int i = 0; i < 5; i++)
 		{
@@ -61,7 +60,6 @@ public class ScoreControl : MonoBehaviour {
 		for (int i = 0; i < 5 && i<listaHighScores.Count; i++)
         {
 			string highScore = listaHighScores[i].ToString();
-            //string[] partes = highScore.Split(',');
 			int indiceKey=i+1;
 			nombreKey = nombreKey + indiceKey;
 			PlayerPrefs.SetString(nombreKey, highScore);

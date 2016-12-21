@@ -8,7 +8,6 @@ namespace AssemblyCSharp
 		public static void EndGame(int puntaje)
 		{
 			ScoreControl.control.guardarPuntajeActual(puntaje);
-			GameEndHandler.gameEndHandler.isGameOver=true;
 			SceneManager.LoadScene(1);
 		}
 	}

@@ -24,32 +24,60 @@ public class ControladorScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         myText = GameObject.Find("PausedText").GetComponent<Text>();
+
+        //Si el juego esta en pausa
         if (Time.timeScale == 0)
         {
             myText.color = Color.red;
-        } else if (playing)
+        }
+        else if (playing)
         {
             myText.color = Color.clear;
             contador++;
             int nroRandomico = Random.Range(100, 200);
+
+            //cuando el contador alcanza un número entre 100 y 200 randomico, caerá un objeto, el contador incrementará uno a uno en cada update.
             if (nroRandomico < contador)
             {				
                 contador = 0;
-                posicion.x = Random.Range(-9, 9);
-				GameObject objeto;
-                
-                if (nroRandomico % 2 == 0) {
-					objeto = (GameObject)Instantiate (plato, posicion, Quaternion.identity);
-				} else {
-					if (nroRandomico % 10 < 5) {
-						objeto = (GameObject)Instantiate (vino, posicion, Quaternion.identity);						
-					} else if ((nroRandomico % 10) >= 5 && (nroRandomico %10)< 8) {
 
-						objeto = (GameObject)Instantiate (cafe, posicion, Quaternion.identity);
-					} else {
-                        objeto = (GameObject)Instantiate(cucaracha, posicion, Quaternion.identity);
-                    }
-				}
+                //elegimos este rango (-9 y 7) ya que es el rango maximo que puede alcanzar el mozo
+                posicion.x = Random.Range(-9, 7);
+				GameObject objeto;
+
+
+                //para definir qué objeto caerá
+                int randomObjeto = Random.Range(1, 10);
+
+                // si randomObjeto está entre 1 y 7, entonces caerá un plato. 70% de probabilidad. 
+                // si randomObjeto es 8, entonces caerá un vino. 10% de probabilidad.
+                // si randomObjeto es 9, entonces caerá un café. 10% de probabilidad.
+                // si randomObjeto es 10, entonces caerá una cucaracha. 10% de probabilidad.
+
+                if (randomObjeto > 4)
+                {
+                    randomObjeto = 4;
+                }
+                GameObject elementoQueCae = new GameObject();
+                switch (randomObjeto)
+                {
+                    case 1: //cucaracha
+                        elementoQueCae = cucaracha;
+                        break;
+                    case 2: //cafe
+                        elementoQueCae = cafe;
+                        break;
+                    case 3: //vino
+                        elementoQueCae = vino;
+                        break;
+                    case 4: //plato
+                        elementoQueCae = plato;
+                        break;
+                    default:
+                        break;
+                }
+                objeto = (GameObject)Instantiate(elementoQueCae, posicion, Quaternion.identity);
+
             }
         }
     }

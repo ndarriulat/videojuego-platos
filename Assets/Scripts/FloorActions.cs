@@ -23,8 +23,10 @@ public class FloorActions : MonoBehaviour {
         {
             gameObject.GetComponent<AudioSource>().Play();
         }
+        
         if (nombreObjeto == ("Plato")) {
-			ShowGameOver();			
+            //Si un plato toca el suelo, pierde
+            ShowGameOver();			
 		}
         Destroy(collider.gameObject);
     }

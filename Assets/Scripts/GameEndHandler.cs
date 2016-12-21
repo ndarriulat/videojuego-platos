@@ -6,31 +6,29 @@ public class GameEndHandler : MonoBehaviour {
 
 	public static GameEndHandler gameEndHandler;
 	public bool isGameOver;
-	public Text gameOverText;
-	public Text finalScoreText;
 
-	// Use this for initialization
-	void Start () {
-		gameOverText.text = "";
-		finalScoreText.text = "";
-		isGameOver = false;
+    public Text myText;
+
+    // Use this for initialization
+    void Start () {
+
 	}
 
 
-	void Update(){
-
-		if (gameOverText!=null&&finalScoreText!=null) {
-
-			finalScoreText.text=ScoreControl.control.ObtenerPuntajeActual()+" puntos.";
-			if (isGameOver) {
-				//gameOverText.text = "Fin del juego";
-				finalScoreText.text=ScoreControl.control.ObtenerPuntajeActual()+" puntos.";
-			} else {
-				gameOverText.text = "";
-				finalScoreText.text = "";
-			}			
-		}
-	}
+	void Update()
+    {
+        if (ScoreControl.control.ObtenerPuntajeActual() > 0)
+        {
+            myText = GameObject.Find("Text_PuntajeFinal").GetComponent<Text>();
+            myText.color = Color.white;
+            myText.text = "Tu puntaje es " + ScoreControl.control.ObtenerPuntajeActual();
+        }
+        else {
+            myText = GameObject.Find("Text_PuntajeFinal").GetComponent<Text>();
+            myText.color = Color.clear;
+            myText.text = "";
+        }
+    }
 
 	void Awake()
 	{
