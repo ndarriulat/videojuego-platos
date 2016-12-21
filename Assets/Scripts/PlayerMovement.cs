@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 	string nombrePlato = "Plato(Clone)";
 	string nombreVino = "Vino(Clone)";
 	string nombreCafe = "Cafe(Clone)";
+	public GameObject destello_plato;
 
     GameObject[] finishObjects;
 
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour {
         string colliderObjectName = collider.gameObject.name;
         if (colliderObjectName.Contains("Plato"))
         {
+			Instantiate (destello_plato, this.gameObject.transform.position,Quaternion.identity);
             gameObject.GetComponent<AudioSource>().Play();
         }
         if (colliderObjectName.Contains("Cucaracha"))
